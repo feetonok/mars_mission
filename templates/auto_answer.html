@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <h2>Результаты анкеты</h2>
+
+    <div class="form-results">
+        <p><strong>Фамилия:</strong> {{ surname }}</p>
+        <p><strong>Имя:</strong> {{ name }}</p>
+        <p><strong>Образование:</strong> {{ education }}</p>
+        <p><strong>Профессия:</strong> {{ profession }}</p>
+        <p><strong>Пол:</strong> {{ sex }}</p>
+        <p><strong>Мотивация:</strong> {{ motivation }}</p>
+        <p><strong>Готовность к миссии:</strong> {{ready}}</p>
+    </div>
+{% endblock %}
