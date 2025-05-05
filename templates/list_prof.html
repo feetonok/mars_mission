@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Профессии для колонизации Марса</h2>
+
+    {% if list_type == 'ol' %}
+        <ol>
+            {% for prof in prof_list %}
+                <li>{{ prof }}</li>
+            {% endfor %}
+        </ol>
+    {% elif list_type == 'ul' %}
+        <ul>
+            {% for prof in prof_list %}
+                <li>{{ prof }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Неверный параметр списка. Используйте 'ol' или 'ul'.</p>
+    {% endif %}
+{% endblock %}
