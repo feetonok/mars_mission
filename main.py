@@ -1,6 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '1917'
 
 PROFESSIONS = [
     "инженер-строитель",
@@ -49,6 +53,23 @@ def auto_answer():
         'ready': 'True'
     }
     return render_template('auto_answer.html', **form_data)
+
+
+class AccessForm(FlaskForm):
+    astronaut_id = StringField('ID астронавта', validators=[DataRequired()])
+    astronaut_password = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    captain_id = StringField('ID капитана', validators=[DataRequired()])
+    captain_token = PasswordField('Токен капитана', validators=[DataRequired()])
+    remember_access = BooleanField('Запомнить доступ')
+    submit = SubmitField('Доступ')
+
+
+@app.route('/access', methods=['GET', 'POST'])
+def access():
+    form = AccessForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('access.html', title='Доступ к системам', form=form)
 
 
 if __name__ == '__main__':
