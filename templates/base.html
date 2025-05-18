@@ -3,10 +3,14 @@
 <head>
     <title>{{ title }}</title>
 </head>
-<body>
-    <h1>Миссия Колонизация Марса</h1>
-    <h4>И на Марсе будут яблони цвести!</h4>
+<body style="margin: 0px; display: flex; flex-direction: column;">
+    <div>
+        <p style="background-color: rgb(200, 200, 200); padding: 10px; margin: 0px; font-size: 2rem; font-weight: bold;" >Миссия Колонизация Марса</p>
+        <h4 style="color: rgba(0, 0, 0, 0.4); padding: 10px;">И на Марсе будут яблони цвести!</h4>
+    </div>
 
-    {% block content %}{% endblock %}
+    <div style="margin: 10px;">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

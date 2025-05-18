@@ -59,7 +59,7 @@ class AccessForm(FlaskForm):
     astronaut_id = StringField('ID астронавта', validators=[DataRequired()])
     astronaut_password = PasswordField('Пароль астронавта', validators=[DataRequired()])
     captain_id = StringField('ID капитана', validators=[DataRequired()])
-    captain_token = PasswordField('Токен капитана', validators=[DataRequired()])
+    captain_token = PasswordField('Пароль капитана', validators=[DataRequired()])
     remember_access = BooleanField('Запомнить доступ')
     submit = SubmitField('Доступ')
 

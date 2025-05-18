@@ -3,49 +3,53 @@
 {% block content %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/access.css') }}">
 
-    <h1>Аварийный доступ</h1>
-    <div class="mission-logo"></div>
-
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-
-        <div class="form-group">
-            {{ form.astronaut_id.label }}<br>
-            {{ form.astronaut_id(class="form-control") }}<br>
-            {% for error in form.astronaut_id.errors %}
-                <div class="alert alert-danger">{{ error }}</div>
-            {% endfor %}
+    <div style="margin: 20px;">
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <div class="mission-logo" style="margin: 0px; gap: 10px;"></div>
+            <p style="padding: 0px; margin: 0px; font-size: 2rem; font-weight: bold;">Аварийный доступ</p>
         </div>
 
-        <div class="form-group">
-            {{ form.astronaut_password.label }}<br>
-            {{ form.astronaut_password(class="form-control", type="password") }}<br>
-            {% for error in form.astronaut_password.errors %}
-                <div class="alert alert-danger">{{ error }}</div>
-            {% endfor %}
-        </div>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
 
-        <div class="form-group">
-            {{ form.captain_id.label }}<br>
-            {{ form.captain_id(class="form-control") }}<br>
-            {% for error in form.captain_id.errors %}
-                <div class="alert alert-danger">{{ error }}</div>
-            {% endfor %}
-        </div>
+            <div class="form-group">
+                {{ form.astronaut_id.label }}<br>
+                {{ form.astronaut_id(class="form-control") }}<br>
+                {% for error in form.astronaut_id.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <div class="form-group">
-            {{ form.captain_token.label }}<br>
-            {{ form.captain_token(class="form-control", type="password") }}<br>
-            {% for error in form.captain_token.errors %}
-                <div class="alert alert-danger">{{ error }}</div>
-            {% endfor %}
-        </div>
+            <div class="form-group">
+                {{ form.astronaut_password.label }}<br>
+                {{ form.astronaut_password(class="form-control", type="password") }}<br>
+                {% for error in form.astronaut_password.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <div class="form-check">
-            {{ form.remember_access(class="form-check-input") }}
-            {{ form.remember_access.label(class="form-check-label") }}
-        </div>
+            <div class="form-group">
+                {{ form.captain_id.label }}<br>
+                {{ form.captain_id(class="form-control") }}<br>
+                {% for error in form.captain_id.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        {{ form.submit(class="btn btn-primary") }}
-    </form>
+            <div class="form-group">
+                {{ form.captain_token.label }}<br>
+                {{ form.captain_token(class="form-control", type="password") }}<br>
+                {% for error in form.captain_token.errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-check">
+                {{ form.remember_access(class="form-check-input") }}
+                {{ form.remember_access.label(class="form-check-label") }}
+            </div>
+
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
 {% endblock %}
